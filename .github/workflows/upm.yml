@@ -34,8 +34,8 @@ jobs:
           git subtree split -P "$CORE_PKG_ROOT" -b upm
           git push -u origin upm
           git checkout upm
-          git push https://lltxjenkins:lltxGame123!@code.aliyun.com/upm/zenject.git
+          git push https://lltxjenkins:${{secrets.ALIYUNPASSWORD}}@code.aliyun.com/upm/zenject.git -f
           npm publish . --access public
         env:
           CORE_PKG_ROOT: UnityProject/Assets/Plugins/Zenject
-          NODE_AUTH_TOKEN: ${{secrets.NUGET_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
